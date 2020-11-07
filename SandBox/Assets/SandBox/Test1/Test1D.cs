@@ -28,7 +28,7 @@ namespace SandBox.Test1
         }
 
 
-        public void Initialize(
+        public void SetData(
             string _name,
             string _url)
         {

@@ -36,7 +36,7 @@ namespace SandBox.Test1
                 st.AppendLine($"{aa.name} | {aa.url}");
                 Test1D obj = test1DFactory.Create();
                 obj.transform.SetParent(transform);
-                obj.Initialize(aa.name, aa.url);
+                obj.SetData(aa.name, aa.url);
             }
             Debug.Log(st.ToString());
         }
