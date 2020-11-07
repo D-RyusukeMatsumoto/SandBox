@@ -9,21 +9,20 @@ namespace SandBox.Test1
     /// </summary>
     public class Test1A : MonoBehaviour
     {
-        DiContainer container;
-
-        [Inject]
-        void Injection(
-            DiContainer _container)
-        {
-            container = _container;
-        }
-
+        [SerializeField] bool useTest1B = true;
+        [SerializeField] Test1B test1B;
+        [SerializeField] Test1BB test1BB;
 
         void Start()
         {
-            // TODO : 一旦クラスが同じオブジェクトに配置されてるバージョンで作成してみる.
-            //container.InstantiateComponent<Test1B>(gameObject);
-            //test1CFactory.Create();
+            if (useTest1B)
+            {
+                test1B.enabled = true;
+            }
+            else
+            {
+                test1BB.enabled = true;
+            }
         }
 
     }

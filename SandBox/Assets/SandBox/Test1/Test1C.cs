@@ -11,6 +11,8 @@ namespace SandBox.Test1
     public class Test1C : MonoBehaviour
     {
         
+        public class Factory : PlaceholderFactory<Test1C> { }
+
         ITest1B testB;
         Test1D.Factory test1DFactory;        
         

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SandBox.Test1;
 using Zenject;
@@ -22,7 +23,23 @@ namespace SandBox.Test1
             public string fuga;
         }
 
+
+        Test1C.Factory test1CFactory;
         
+
+        [Inject]
+        void Injection(
+            Test1C.Factory _test1CFactory)
+        {
+            test1CFactory = _test1CFactory;
+        }
+
+
+        void Start()
+        {
+            test1CFactory.Create();
+        }
+
         void Update()
         {
         }

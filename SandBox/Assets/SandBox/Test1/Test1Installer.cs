@@ -12,6 +12,11 @@ namespace SandBox.Test1
                 .FromComponentInHierarchy()
                 .AsCached()
                 .NonLazy();
+
+
+            Container.BindFactory<Test1C, Test1C.Factory>()
+                .FromComponentInNewPrefabResource("Test1C")
+                .AsCached();
         }
     }
 }
