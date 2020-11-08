@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using Zenject;
@@ -13,16 +14,14 @@ namespace SandBox.Test1
         
         public class Factory : PlaceholderFactory<Test1C> { }
 
+        [SerializeField] List<Test1D> test1Ds;
         ITest1B testB;
-        Test1D.Factory test1DFactory;        
         
         [Inject]
         void Injection(
-            ITest1B _testB,
-            Test1D.Factory _test1DFactory)
+            ITest1B _testB)
         {
             testB = _testB;
-            test1DFactory = _test1DFactory;
         }
 
         
@@ -31,12 +30,10 @@ namespace SandBox.Test1
         {
             var st = new StringBuilder();
             var a = testB.GetDataList();
-            foreach (var aa in a)
+            for (var i = 0; i < a.Count; ++i)
             {
-                st.AppendLine($"{aa.name} | {aa.url}");
-                Test1D obj = test1DFactory.Create();
-                obj.transform.SetParent(transform);
-                obj.SetData(aa.name, aa.url);
+                st.AppendLine($"{a[i].name} | {a[i].url}");
+                test1Ds[i].SetData(a[i].name, a[i].url);
             }
             Debug.Log(st.ToString());
         }

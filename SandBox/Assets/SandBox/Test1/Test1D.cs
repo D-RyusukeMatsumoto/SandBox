@@ -9,8 +9,6 @@ namespace SandBox.Test1
     /// </summary>
     public class Test1D : MonoBehaviour
     {
-        public class Factory : PlaceholderFactory<Test1D>{}
-
         string url;
         ITest1B test1B;
 
